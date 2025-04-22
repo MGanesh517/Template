@@ -1,7 +1,7 @@
-import 'package:template/Theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:template/Theme/app_theme.dart';
 
 const tokenBox = "token";
 void configLoading() {

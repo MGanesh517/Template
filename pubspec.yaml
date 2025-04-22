@@ -125,9 +125,9 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-        - asset: assets/Poppins Fonts/ttf/Poppins-Regular.ttf
-        - asset: assets/Poppins Fonts/ttf/Poppins-Medium.ttf
-        - asset: assets/Poppins Fonts/ttf/Poppins-SemiBold.ttf
+        - asset: assets/ttf/Poppins-Regular.ttf
+        - asset: assets/ttf/Poppins-Medium.ttf
+        - asset: assets/ttf/Poppins-SemiBold.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

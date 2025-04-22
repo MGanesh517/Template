@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:responsive_toolkit/responsive_grid.dart';
 import 'package:template/App%20Constants/app_constants.dart';
 import 'package:template/Common%20Components/BreakPoints/breakpoints.dart';
+import 'package:template/Common%20Components/Common%20Widgets/custom_appbar.dart';
 import 'package:template/Common%20Components/Common%20Widgets/dotted_border_common_component.dart';
 import 'package:template/Common%20Components/Common%20Widgets/mini_common_model.dart';
 import 'package:template/Common%20Components/common_input_fields.dart';
+import 'package:template/Common%20Components/common_services.dart';
 import 'package:template/Common%20Components/date_picker.dart';
 import 'package:template/Screen/Custom_AppBar/custom_appbar.dart';
 
@@ -54,29 +56,29 @@ class _LeadsCreateScreenState extends State<LeadsCreateScreen> {
         bool isLargeScreen = constraints.maxWidth >= 700;
 
         return isLargeScreen ? CommonScaffoldWithAppBar(
-          leadingChild: !isLargeScreen
-              ? IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: Icon(Icons.chevron_left,
-                      color: Theme.of(context).colorScheme.onSurface),
-                )
-              : null,
-              titleChild: !isLargeScreen
-                  ? Text(
-                      'Add Lead',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onSurface,
-                      ),
-                    )
-                  : null,
+          // leadingChild: !isLargeScreen
+          //     ? IconButton(
+          //         onPressed: () {
+          //           Get.back();
+          //         },
+          //         icon: Icon(Icons.chevron_left,
+          //             color: Theme.of(context).colorScheme.onSurface),
+          //       )
+          //     : null,
+              // titleChild: !isLargeScreen
+              //     ? Text(
+              //         'Add Lead',
+              //         style: TextStyle(
+              //           fontSize: 20,
+              //           fontWeight: FontWeight.bold,
+              //           color: Theme.of(context).colorScheme.onSurface,
+              //         ),
+              //       )
+              //     : null,
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: isLargeScreen ? Container(
+              child: Container(
                 height: Get.height * 0.9,
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.primaryContainer,
@@ -86,18 +88,24 @@ class _LeadsCreateScreenState extends State<LeadsCreateScreen> {
                   padding: const EdgeInsets.all(12.0),
                   child: leadsCreateScreenContent()
                 ),
-              ) : leadsCreateScreenContent(),
+              ),
             ),
           ),
-        ) : Scaffold(
-          appBar: AppBar(
-            title: Text('Add Lead'),
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                Get.back();
-              },
-            ),
+        )
+        : Scaffold(
+          appBar: CustomAppBar(
+            titleChild: Text(
+                      'Add Lead',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                    ),
+            leadingChild: Icon(Icons.arrow_back, color: Theme.of(context).colorScheme.onSurface),
+            leadingLink: () {
+              Get.back();
+            },
           ),
           body: SingleChildScrollView(
             child: Padding(
@@ -519,14 +527,22 @@ class _LeadsCreateScreenState extends State<LeadsCreateScreen> {
                                 Container(
                                   width: Get.width,
                                   child: GestureDetector(
-                                    onTap: () {
-                                      Get.defaultDialog(
-                                        content: Container(
-                                          height: 100,
-                                          color: Colors.white,
-                                        ),
-                                      );
-                                    },
+                                    onTap:
+                                      // Get.defaultDialog(
+                                      //   content: Container(
+                                      //     height: 100,
+                                      //     color: Colors.white,
+                                      //   ),
+                                      // );
+                                      () async {
+                                            await CommonService.documentPicker().then((value) {
+                                              print("Printing the onTapDocument image Value ::: => $value");
+                                              // controller.selectedImageFile = File(value!.files.single.path!);
+                                              // controller.update();
+                                            });
+                                            Get.back();
+                                          },
+                                    // },
                                     child: CustomPaint(
                                       painter: DottedBorderPainter(borderRadius: BorderRadius.circular(15.0), color: Colors.grey,),
                                       child: Container(

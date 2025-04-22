@@ -503,11 +503,11 @@ static Column defaultSearchTextFormField(
             color: Theme.of(context).colorScheme.surfaceContainer,
               fontFamily: 'Poppins',
           ),
-          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0), // Reduced padding
+          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
           counterText: '',
           prefixIcon: prefixIcon != null
               ? Padding(
-                  padding: const EdgeInsets.all(8.0), // Adjusts icon size
+                  padding: const EdgeInsets.all(8.0),
                   child: prefixIcon,
                 )
               : null,
@@ -515,7 +515,7 @@ static Column defaultSearchTextFormField(
           filled: true,
           fillColor: Theme.of(context).colorScheme.primaryContainer,
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0), // Slightly smaller radius
+            borderRadius: BorderRadius.circular(10.0),
             borderSide: BorderSide(color: Theme.of(context).colorScheme.outline, width: 1.0),
           ),
           focusedBorder: OutlineInputBorder(
@@ -540,11 +540,11 @@ static Column defaultSearchTextFormField(
       ),
       if (errorText != null)
         Padding(
-          padding: const EdgeInsets.only(top: 2.0), // Reduced spacing
+          padding: const EdgeInsets.only(top: 2.0),
           child: Text(
             errorText,
             style: const TextStyle(
-              fontSize: 11, // Smaller error text
+              fontSize: 11,
               color: Colors.red,
             ),
           ),
@@ -925,87 +925,6 @@ static Column defaultSearchTextFormField(
     );
   }
 
-  // static Column defaultDropDownTextField(context,
-  //     {TextEditingController? controller,
-  //     String? title = '',
-  //     String? initialValue,
-  //     String? hintText,
-  //     String? errorText,
-  //     bool? readOnly = false,
-  //     bool? enable = true,
-  //     bool? filled = false,
-  //     Icon? prefixIcon,
-  //     Widget? suffixIcon,
-  //     int? maxLength,
-  //     int? maxLines,
-  //     bool? obscureText = false,
-  //     List<TextInputFormatter>? inputFormatters,
-  //     TextInputAction? textInputAction,
-  //     TextInputType? keyboardType,
-  //     FocusNode? focusNode,
-  //     TextCapitalization? textCapitalization,
-  //     InputDecoration? decoration,
-  //     validator,
-  //     void Function(String?)? onSaved,
-  //     void Function()? onTap,
-  //     void Function()? onEditingComplete,
-  //     void Function(String)? onChange,
-  //     void Function(String)? onFieldSubmitted,
-  //     void Function(PointerDownEvent)? onTapOutside}) {
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     children: [
-  //       ShadowContainer(
-  //           // height: Get.height * 50 / 896,
-  //           // margin: EdgeInsets.symmetric(horizontal: 24.0),
-  //           defaultRadius: false,
-  //           radius: 8,
-  //           child: TextFormField(
-  //             autofocus: false,
-  //             maxLength: maxLength,
-  //             maxLines: maxLines,
-  //             readOnly: true,
-  //             enabled: enable,
-  //             controller: controller,
-  //             textCapitalization: textCapitalization ?? TextCapitalization.none,
-  //             focusNode: focusNode,
-  //             textInputAction: textInputAction,
-  //             initialValue: initialValue,
-  //             obscureText: obscureText!,
-  //             keyboardType: keyboardType,
-  //             autovalidateMode: AutovalidateMode.onUserInteraction,
-  //             inputFormatters: inputFormatters,
-  //             cursorColor: Theme.of(context).colorScheme.primary,
-  //             style: TextStyle(fontSize: Get.height * AppConstants.themeConstants.fontsize_16, fontWeight: FontWeight.w500),
-  //             decoration: InputDecoration(
-  //               constraints: BoxConstraints(maxHeight: Get.height * 40 / 896, minHeight: Get.height * 40 / 896),
-  //               counterText: '',
-  //               hintText: hintText,
-  // hintStyle: TextStyle(
-  //     fontSize: Get.height * AppConstants.themeConstants.fontsize_14,
-  //     fontWeight: FontWeight.w500,
-  //     color: Theme.of(context).colorScheme.primaryFixed),
-  //               prefixIcon: prefixIcon,
-  //               suffixIcon: suffixIcon,
-  //               filled: true,
-  //               fillColor: Theme.of(context).colorScheme.primaryContainer,
-  //               border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(8)),
-  //               contentPadding: const EdgeInsets.fromLTRB(15, 13, 15, 12),
-  //               suffixIconConstraints: const BoxConstraints(minHeight: 10, minWidth: 10, maxHeight: 20, maxWidth: 60),
-  //               prefixIconConstraints: const BoxConstraints(minHeight: 10, minWidth: 10, maxHeight: 20, maxWidth: 40),
-  //             ),
-  //             onTapOutside: onTapOutside,
-  //             onChanged: onChange,
-  //             onFieldSubmitted: onFieldSubmitted,
-  //             onSaved: onSaved,
-  //             onTap: onTap,
-  //             validator: validator,
-  //             onEditingComplete: onEditingComplete,
-  //           )),
-  //     ],
-  //   );
-  // }
-
   static Column defaultNewDropdownSearch<T>(
     BuildContext context, {
     Key? key,
@@ -1108,6 +1027,19 @@ static Column defaultSearchTextFormField(
                         ? PopupProps.menu(
                           showSelectedItems: true,
                           showSearchBox: true,
+                          // infiniteScrollProps: InfiniteScrollProps(
+                          //   loadProps: LoadProps(),
+                          //   loadingMoreBuilder: (p0, loadedItems) {
+                          //     return Container(
+                          //       height: 50,
+                          //       child: Center(
+                          //         child: CircularProgressIndicator(
+                          //           color: Theme.of(context).colorScheme.primary,
+                          //         ),
+                          //       ),
+                          //     );
+                          //   },
+                          // ),
                             searchFieldProps: TextFieldProps(
                               decoration: InputDecoration(
                               suffixIcon: Icon(
@@ -1338,6 +1270,14 @@ static Column defaultSearchTextFormField(
                   showSearchBox: true,
                   itemBuilder: itemBuilder,
                   fit: FlexFit.tight,
+                  // infiniteScrollProps: InfiniteScrollProps(
+                  //   loadProps: LoadProps(),
+                  //   loadingMoreBuilder: (p0, loadedItems) {
+                  //     return const Center(
+                  //       child: CircularProgressIndicator(),
+                  //     );
+                  //   },
+                  // ),
                   searchFieldProps: TextFieldProps(
                       decoration: InputDecoration(
                     suffixIcon: Icon(

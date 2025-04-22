@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:template/Screen/Components/button_styles_component.dart';
 import 'package:template/Screen/Illustration/splash_screen.dart';
 import 'package:template/Screen/Leads/leads_create_screen.dart';
 import 'package:template/Screen/Leads/leads_list_screen.dart';
@@ -22,5 +23,10 @@ class AppPages {
     GetPage(name: '/responsiveProfileScreen', page: () => const ResponsiveProfileScreen(), transition: Transition.noTransition),
     GetPage(name: '/leadsCreateScreen', page: () => const LeadsCreateScreen(), transition: Transition.noTransition),
     GetPage(name: '/leadsListScreen', page: () => const LeadsListScreen(), transition: Transition.noTransition),
-  ];
+
+
+
+    ////////    Components Screens      //////////
+
+    GetPage(name: '/buttonTypes', page: () => const ButtonTypes(), transition: Transition.noTransition),  ];
 }

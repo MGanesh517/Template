@@ -370,6 +370,11 @@ class _AdaptiveDrawerState extends State<AdaptiveDrawer> {
       'icon': Icons.leaderboard_outlined,
       'route': '/leadsListScreen',
     },
+    {
+      'title': 'Button Styles',
+      'icon': Icons.smart_button,
+      'route': '/buttonTypes',
+    },
   ];
 
   @override

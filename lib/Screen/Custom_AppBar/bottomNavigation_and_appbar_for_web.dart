@@ -34,8 +34,8 @@ class NavigationItems {
     ),
     NavigationItemCommon(
       icon: Icons.account_circle_outlined,
-      label: 'Accounts',
-      onTap: () => Get.toNamed('/responsiveProfileScreen'),
+      label: 'Button Styles',
+      onTap: () => Get.toNamed('/buttonTypes'),
     ),
   ];
 

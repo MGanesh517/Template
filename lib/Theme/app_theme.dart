@@ -89,8 +89,8 @@ class AppTheme {
       colorScheme: Theme.of(context).colorScheme.copyWith(
           primary: currentTheme.currentColor(),
           primaryContainer: Colors.white,
-          surface: Colors.black,
-          onSurface: const Color.fromRGBO(167, 167, 167, 1),
+          surface: Color(0xffF2F4F7),
+          onSurface: const Color(0xff50555c),
           outline: Color.fromRGBO(235, 235, 235, 1),
           surfaceContainer: Color.fromRGBO(192, 192, 192, 1),
           brightness: Brightness.light,

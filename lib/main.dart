@@ -1,143 +1,42 @@
 import 'dart:async';
 import 'dart:io';
 
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:template/Common%20Components/common_services.dart';
 import 'package:template/Common%20Components/session_manager.dart';
 import 'package:template/Routes/app_pages.dart';
 import 'package:template/Screen/Illustration/splash_screen.dart';
 import 'package:template/Theme/app_theme.dart';
 import 'package:template/Theme/theme_config.dart';
+import 'package:template/Utils/custom_scroll.dart';
 import 'package:template/Utils/initial_binding.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
-// late AndroidNotificationChannel channel;
-// late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
-
-// Future<void> _firebaseMessagingBackgroundHandlerMessage(RemoteMessage message) async {
-//   await Firebase.initializeApp();
-//   print("_firebaseMessagingBackgroundHandler Clicked!");
-//   // routeToGo = Routes.TODAY_FOLLOWUPS;
-//   print("printing message: ${message.data}");
-//   if (message.data['screen'] == 1) {
-//     // Get.toNamed(Routes.DASHBOARD_VIEW);
-//   } else {
-//     // Get.toNamed(Routes.TODAY_FOLLOWUPS);
-//   }
-
-//   print("Printing Notification Data:${message.notification!.body}");
-//   flutterLocalNotificationsPlugin.show(
-//       message.notification.hashCode,
-//       message.notification?.title,
-//       message.notification?.body,
-//       NotificationDetails(
-//         android: AndroidNotificationDetails(
-//           channel.id,
-//           channel.name,
-//         ),
-//       ));
-// }
-
-//////////////////////        For Web TO Store The Credentials        //////////////////////
   var commonService = CommonService.instance;
 
   isFirstUserOrNot() async {
     commonService.accessToken = await SessionManager.getAccessToken();
     commonService.refreshToken = await SessionManager.getRefreshToken();
-    // commonService.username = await SessionManager.getUsername();
-    // commonService.fullname = await SessionManager.getFullname();
-    // commonService.userProfile = await SessionManager.getUserProfile();
-    // commonService.userId = await SessionManager.getUserId();
-    // commonService.permissions = await SessionManager.getPermissions();
-    // SessionManager.setIsFirstTime(true);
-    // commonService.isFirstTime = await SessionManager.getIsFirstTime();
-    // debugPrint("isFirstUserOrNot :::::Access Token::::::${commonService.accessToken}");
-    // if (commonService.accessToken != '') {
-    //   Get.toNamed(Routes.ChatListView);
-    // } else {
-    //   Get.toNamed(Routes.loginView);
-    // }
   }
+
 Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     isFirstUserOrNot();
-    // requestNotificationPermission();
-    // // if (Platform.isAndroid) {
-    // //   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-    // // } else {
-    // await Firebase.initializeApp();
+    await Hive.initFlutter();
     // }
-
-    // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandlerMessage);
-
-    // if (!kIsWeb) {
-    //   channel = const AndroidNotificationChannel(
-    //     'high_importance_channel', // id
-    //     'High Importance Notifications', // title
-    //     description: 'This channel is used for important notifications.', // description
-    //     importance: Importance.high,
-    //   );
-
-    //   flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-
-    //   await flutterLocalNotificationsPlugin
-    //       .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
-    //       ?.createNotificationChannel(channel);
-
-    //   // await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
-    //   //   alert: true,
-    //   //   badge: true,
-    //   //   sound: true,
-    //   // );
-    // }
-    if (Platform.isAndroid) {
-      setOptimalDisplayMode();
-    }
-
-    // if (Platform.isWindows || Platform.isLinux || Platform.isMacOS || kIsWeb) {
-    //   await Hive.initFlutter('GowriSevaSangam');
-    // } else {
-    //   await Hive.initFlutter();
-    // }
-    if (kIsWeb) {
-      print('print if the devidce is web ::::::: $kIsWeb');
-      // await Hive.initFlutter('GowriSevaSangam');
-      await Hive.initFlutter();
-    } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-      await Hive.initFlutter('GowriSevaSangam');
-    } else {
-      await Hive.initFlutter();
-    }
     await openHiveBox('settings');
-    // await Hive.openBox<UserLoginData>('userData');
     await openHiveBox('cache', limit: true);
     await startService();
 
     runApp(const MyApp());
   }, (error, stackTrace) {});
-}
-
-Future<void> requestNotificationPermission() async {
-  var status = await Permission.notification.status;
-  if (status.isDenied) {
-    // Request the permission
-    if (await Permission.notification.request().isGranted) {
-      // Permission granted
-      print("Notification permission granted");
-    }
-  }
 }
 
 Future<void> startService() async {
@@ -154,8 +53,8 @@ Future<void> openHiveBox(String boxName, {bool limit = false}) async {
     File dbFile = File('$dirPath/$boxName.hive');
     File lockFile = File('$dirPath/$boxName.lock');
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-      dbFile = File('$dirPath/GowriSevaSangam/$boxName.hive');
-      lockFile = File('$dirPath/GowriSevaSangam/$boxName.lock');
+      dbFile = File('$dirPath/Template/$boxName.hive');
+      lockFile = File('$dirPath/Template/$boxName.lock');
     }
     await dbFile.delete();
     await lockFile.delete();
@@ -236,11 +135,13 @@ class _MyAppState extends State<MyApp> {
         child: GetMaterialApp(
           smartManagement: SmartManagement.keepFactory,
           debugShowCheckedModeBanner: false,
+          // navigatorObservers: [AppNavigatorObserver()],
+          scrollBehavior: CustomScrollBehavior(),
           initialBinding: InitialBinding(),
           getPages: AppPages.pages,
           defaultTransition: Transition.native,
           transitionDuration: const Duration(milliseconds: 3000),
-          title: 'Gowri Seva Sangam',
+          title: 'Template',
           themeMode: AppTheme.themeMode,
           theme: AppTheme.lightTheme(
             context: context,

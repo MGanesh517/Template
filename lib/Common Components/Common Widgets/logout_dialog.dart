@@ -64,7 +64,7 @@ class LogoutDialog extends StatelessWidget {
                   //     gradient: LinearGradient(colors: [Color.fromRGBO(242, 83, 112, 1), Color.fromRGBO(140, 48, 65, 1)]),
                   //     borderRadius: BorderRadius.circular(10)),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: MaterialButton(

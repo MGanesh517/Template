@@ -28,7 +28,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0.0,
-      backgroundColor: appBarBGColor == null ? Theme.of(context).colorScheme.secondaryContainer : Colors.white,
+      // backgroundColor: appBarBGColor == null ? Theme.of(context).colorScheme.primary : Colors.white,
+      backgroundColor: appBarBGColor ?? Theme.of(context).colorScheme.primaryContainer,
       leading: leadingChild != null
           ? Align(
               alignment: Alignment.center,

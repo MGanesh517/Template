@@ -251,7 +251,7 @@ class MyTheme with ChangeNotifier {
   Color currentColor() {
     switch (accentColor) {
       case 'App Primary':
-        return const Color.fromRGBO(22, 20, 30, 1);
+        return const Color(0xff1562ab);
       case 'Red':
         return Colors.redAccent[currentHue()]!;
       case 'Teal':

@@ -78,7 +78,7 @@ print('print the login data :::: $data');
         // miniController.miniProductTypeIsRefresh = true;
         // await miniController.getMiniProductTypeList();
 
-        await Get.toNamed(Routes.dashBoardView);
+        await Get.toNamed(Routes.mastersListScreen);
 
         return true;
       } else {

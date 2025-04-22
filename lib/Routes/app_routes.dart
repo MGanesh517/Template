@@ -13,4 +13,6 @@ class Routes {
   static const addMembers = '/addMembers';
   static const changePasswordView = '/changePasswordView';
 
+  static const mastersListScreen = '/mastersListScreen';
+
 }

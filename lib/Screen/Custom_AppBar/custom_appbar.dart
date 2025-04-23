@@ -375,6 +375,76 @@ class _AdaptiveDrawerState extends State<AdaptiveDrawer> {
       'icon': Icons.smart_button,
       'route': '/buttonTypes',
     },
+    {
+      'title': 'Pagination Models Screen',
+      'icon': Icons.line_style_rounded,
+      'route': '/paginationExamples',
+    },
+    {
+      'title': 'Grid Examples',
+      'icon': Icons.grid_off_outlined,
+      'route': '/girdExamples',
+    },
+    {
+      'title': 'Buttons',
+      'icon': Icons.account_circle,
+      'route': '/buttonTypes',
+    },
+    {
+      'title': 'TextFields',
+      'icon': Icons.settings,
+      'route': '/textFieldsCommonFields',
+    },
+    {
+      'title': 'Other Widgets',
+      'icon': Icons.person_outline,
+      'route': '/otherDialogWidgets',
+    },
+    {
+      'title': 'Profile Screen V3',
+      'icon': Icons.propane_sharp,
+      'route': '/responsiveProfileScreen',
+    },
+    {
+      'title': 'Date Picker Utils',
+      'icon': Icons.date_range,
+      'route': '/datePickerUtils',
+    },
+    {
+      'title': 'CheckBox && ColorPicker',
+      'icon': Icons.check_box,
+      'route': '/checkboxExamples',
+    },
+    {
+      'title': 'Different Type Date Pickers',
+      'icon': Icons.date_range_outlined,
+      'route': '/antDatePickerDemoScreen',
+    },
+    {
+      'title': 'Grid Examples 222',
+      'icon': Icons.grid_off_outlined,
+      'route': '/responsiveGridExample',
+    },
+    {
+      'title': 'Dropdown Model Styles',
+      'icon': Icons.arrow_drop_down_circle,
+      'route': '/defaultDropdownStyles',
+    },
+    {
+      'title': 'BreadCrumb Example',
+      'icon': Icons.breakfast_dining,
+      'route': '/breadcrumbFucntion',
+    },
+    {
+      'title': 'Upload UI Document',
+      'icon': Icons.upload,
+      'route': '/uploadDocumentUiExamples',
+    },
+    {
+      'title': 'Grid Responsive Example',
+      'icon': Icons.grid_3x3,
+      'route': '/gridRealTimeExample',
+    },
   ];
 
   @override

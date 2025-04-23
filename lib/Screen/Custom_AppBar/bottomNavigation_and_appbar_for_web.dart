@@ -37,6 +37,60 @@ class NavigationItems {
       label: 'Button Styles',
       onTap: () => Get.toNamed('/buttonTypes'),
     ),
+    NavigationItemCommon(
+      icon: Icons.line_style_outlined,
+      label: "Pagination Model Screen",
+      onTap: () => Get.toNamed('/paginationExamples')
+    ),
+    NavigationItemCommon(
+      icon: Icons.grid_3x3,
+      label: 'Grid Examples',
+      onTap: () => Get.toNamed('/girdExamples')
+    ),
+    NavigationItemCommon(
+      icon: Icons.account_circle,
+      label: 'Buttons',
+      onTap: () => Get.toNamed('/buttonTypes'),
+    ),
+    NavigationItemCommon(
+      icon: Icons.settings,
+      label: 'TextFields',
+      onTap: () => Get.toNamed('/textFieldsCommonFields'),
+    ),
+    NavigationItemCommon(
+      icon: Icons.settings,
+      label: 'Other Widgets',
+      onTap: () => Get.toNamed('/otherDialogWidgets'),
+    ),
+    NavigationItemCommon(
+      icon: Icons.verified_user,
+      label: 'ProfileScreen V3',
+      onTap: () => Get.toNamed('/responsiveProfileScreen'),
+    ),
+    NavigationItemCommon(
+      icon: Icons.settings,
+      label: 'Date Picker Utils',
+      onTap: () => Get.toNamed('/datePickerUtils'),
+    ),
+    NavigationItemCommon(
+      icon: Icons.check_box,
+      label: 'CheckBox && ColorPicker',
+      onTap: () => Get.toNamed('/checkboxExamples')
+    ),
+    NavigationItemCommon(
+      icon: Icons.data_exploration_rounded,
+      label: "Different Type DatePickers",
+      onTap: () => Get.toNamed('/antDatePickerDemoScreen')
+    ),
+    NavigationItemCommon(
+      icon: Icons.grid_off_outlined,
+      label: "Grid Examples 22",
+      onTap: () => Get.toNamed('/responsiveGridExample')
+    ),NavigationItemCommon(
+      icon: Icons.arrow_drop_down_circle,
+      label: 'Dropdown ModelScreen',
+      onTap: () => Get.toNamed('/defaultDropdownStyles')
+    ),
   ];
 
   static List<NavigationItemCommon> get bottomNavItems {

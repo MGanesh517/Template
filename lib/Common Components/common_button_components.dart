@@ -62,6 +62,7 @@ class ButtonTypeCommonComponents {
 
   static Column defaultElevatedButton(
     BuildContext context, {
+    IconData? icon,
     required VoidCallback onPressed,
     String text = "Elevated Button",
     ButtonStyle? style,

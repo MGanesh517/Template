@@ -43,6 +43,7 @@ class _PaginationExamplesState extends State<PaginationExamples> {
                 currentPage: changerPage,
                 totalPages: 50,
                 pageSize: 10,
+                showTotal: true,
                 showPageSizeChanger: true,
                 onPageChanged: (page) => setState(() {
                   changerPage = page;
@@ -62,6 +63,17 @@ class _PaginationExamplesState extends State<PaginationExamples> {
                   print('Jumper -> Page: $page');
                 }),
               ),
+              const SizedBox(height: 24),
+
+              CommonPagination(
+                currentPage: 1,
+                totalPages: 5,
+                pageSize: 10,
+                onPageChanged: (value) {
+                  print('Page: $value');
+                },
+              ),
+
               const SizedBox(height: 24),
 
               const Text("Pagination with Total Info", style: TextStyle(fontWeight: FontWeight.bold)),

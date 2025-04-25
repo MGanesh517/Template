@@ -445,6 +445,16 @@ class _AdaptiveDrawerState extends State<AdaptiveDrawer> {
       'icon': Icons.grid_3x3,
       'route': '/gridRealTimeExample',
     },
+    {
+      'title': "Scroll Bar",
+      'icon': Icons.roller_shades,
+      'route': '/scrollBarExamples',
+    },
+    {
+      "title": "Single & Multi Select PopUp",
+      "icon": Icons.check_box,
+      "route": "/singleAndMultiSelectPopUp",
+    },
   ];
 
   @override

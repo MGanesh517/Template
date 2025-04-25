@@ -9,6 +9,8 @@ import 'package:template/Screen/Components/grid_examples.dart';
 import 'package:template/Screen/Components/grid_real_time_example.dart';
 import 'package:template/Screen/Components/other_dialog_widgets.dart';
 import 'package:template/Screen/Components/pagination.dart';
+import 'package:template/Screen/Components/scroll_bar.dart';
+import 'package:template/Screen/Components/single_%20and_multi_select%20_popup_compoenet.dart';
 import 'package:template/Screen/Components/text_fields.dart';
 import 'package:template/Screen/Components/upload_document_ui_examples.dart';
 import 'package:template/Screen/Custom_AppBar/bottomNavigation_and_appbar_for_web.dart';
@@ -64,6 +66,8 @@ class AppPages {
 
     GetPage(name: '/uploadDocumentUiExamples',page: () => UploadDocumentUiExamples(), transition: Transition.noTransition),
     GetPage(name: '/gridRealTimeExample',page: () => GridRealTimeExample(), transition: Transition.noTransition),
+    GetPage(name: '/scrollBarExamples',page: () => ScrollBarExamples(), transition: Transition.noTransition),
+    GetPage(name: '/singleAndMultiSelectPopUp',page: () => SingleAndMultiSelectPopUp(), transition: Transition.noTransition),
 
   ];
 }
